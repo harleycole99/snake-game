@@ -2,14 +2,23 @@ from turtle import Screen, Turtle
 
 screen = Screen()
 screen.setup(width=600, height=600)
-screen.clearscreen()
 screen.bgcolor("green yellow")
 screen.title("Snake Game")
 screen.tracer(0)
 
-marker = Turtle()
-marker.hideturtle()
+
+segments = []
+starting_positions = [(0, 0), (-20, 0), (-40, 0)]
+for position in starting_positions:
+    new_segment = Turtle("square")
+    new_segment.color("black")
+    new_segment.penup()
+    new_segment.shapesize(1, 1)
+    new_segment.goto(position)
+    segments.append(new_segment)
 
 screen.update()
+
+new_segment = Turtle("square")
 
 screen.exitonclick()
